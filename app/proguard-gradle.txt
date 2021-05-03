@@ -8,7 +8,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 -applymapping <atak.proguard.mapping>
--repackageclasses atakplugin.PluginTemplate
+-repackageclasses com.atakmap.android.pulse.plugin
 
 -keepattributes *Annotation*
 -keepattributes Signature, InnerClasses
@@ -56,3 +56,9 @@
 # overcome an existing bug in the gradle subsystem (3.5.x)
 -keep class module-info
 
+-keep class com.atakmap.android.pulse.** {*;}
+-keep class androidx.** {*;}
+-dontwarn java.lang.invoke.**
+-dontwarn com.google.common.**
+-dontwarn com.google.**
+-dontwarn androidx.**

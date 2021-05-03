@@ -2,6 +2,8 @@ package com.atakmap.android.plugin.rain.pulse.prefs;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.CheckBox;
 
 import com.atakmap.android.maps.MapView;
 import com.atakmap.android.plugin.rain.pulse.model.TeamMemberInputs;
@@ -157,4 +159,56 @@ public class PulsePrefs {
         editor.apply();
     }
 
+    public static void storeTreatmentCheckBoxPrefs(List<CheckBox> checkBoxes, String otherValue) {
+        SharedPreferences prefs = getPrefs();
+        SharedPreferences.Editor editor = prefs.edit();
+
+        try {
+            for (int i = 0; i < checkBoxes.size(); i++) {
+                editor.putBoolean(KEY_CASEVAC_TREATMENTS_CHECKBOXES + checkBoxes.get(i).getText(), checkBoxes.get(i).isChecked());
+            }
+            editor.apply();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void storeTQCheckBoxPrefs(List<CheckBox> checkBoxes, List<Integer> treatmentsStringList) {
+        SharedPreferences prefs = getPrefs();
+        SharedPreferences.Editor editor = prefs.edit();
+
+        for (int i = 0; i < checkBoxes.size(); i++) {
+            editor.putBoolean(KEY_CASEVAC_TQ_CHECKED + checkBoxes.get(i).getId(), checkBoxes.get(i).isChecked());
+            editor.putString(KEY_CASEVAC_TQ_TIME + checkBoxes.get(i).getId(), String.valueOf(checkBoxes.get(i).getText()));
+        }
+        editor.apply();
+    }
+
+    public static void storeInjuryLocationPrefs(String bodyPartText, int textVisibility, float textViewX, float textViewY,
+                                                int imageViewTraumaDonutVis, float imageViewDonutX, float imageViewDonutY,
+                                                int greenConfirmationVis, float confirmationX, float confirmationY) {
+
+        SharedPreferences prefs = getPrefs();
+        SharedPreferences.Editor editor = prefs.edit();
+        Log.d("TAG", "storeInjuryLocationPrefs:  " + textVisibility + "  " + greenConfirmationVis);
+
+        editor.putString(KEY_CASEVAC_BODY_PART, bodyPartText);
+        editor.putInt(KEY_CASEVAC_BODY_PART_VIS, textVisibility);
+        editor.putFloat(KEY_CASEVAC_BODY_PART_LOC_X, textViewX);
+        editor.putFloat(KEY_CASEVAC_BODY_PART_LOC_Y, textViewY);
+
+        editor.putInt(KEY_CASEVAC_INJURY_IV_DONUT_POS, imageViewTraumaDonutVis);
+        editor.putFloat(KEY_CASEVAC_INJURY_IV_DONUT_X, imageViewDonutX);
+        editor.putFloat(KEY_CASEVAC_INJURY_IV_DONUT_Y, imageViewDonutY);
+
+        editor.putInt(KEY_CASEVAC_IV_CONFIRM_CHECK_MARK_VIS, greenConfirmationVis);
+        editor.putFloat(KEY_CASEVAC_CONFIRMATION_IV_DONUT_X, confirmationX);
+        editor.putFloat(KEY_CASEVAC_CONFIRMATION_IV_DONUT_Y, confirmationY);
+
+        editor.apply();
+    }
+
+    public static void storeTreatmentTablePreferences(List<String> treatmentsTableFluidList, List<String> treatmentsTableBloodList, List<String> treatmentsTableAnalgesicList, List<String> treatmentsTableAntibioticList, boolean b) {
+        //TODO - come back to this
+    }
 }

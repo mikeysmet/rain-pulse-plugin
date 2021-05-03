@@ -1,0 +1,640 @@
+<?xml version="1.horizontal" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_treatments"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darker_gray"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/treatments"
+                android:textColor="@color/light_grey"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/x_all_that_apply"
+                android:textColor="@color/light_grey"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_flip_small_tccc"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/tccc_man" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="16dp"
+        android:background="#333"
+        android:backgroundTint="@color/med_grey" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="C:"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+            <CheckBox
+                android:id="@+id/cb_btn_extremity"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_margin="1dp"
+                android:background="@drawable/table_borders"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/extremity"
+                android:textColor="@color/light_grey"
+                android:textSize="12sp"
+               />
+
+        <CheckBox
+            android:id="@+id/cb_btn_junc"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/junctional"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+            <CheckBox
+                android:id="@+id/cb_btn_trunc"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_margin="1dp"
+                android:background="@drawable/table_borders"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/truncal"
+                android:textColor="@color/light_grey"
+                android:textSize="12sp"
+                />
+
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@color/darker_gray"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            android:clickable="false"
+            />
+
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/darker_gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/type"-->
+<!--            android:textColor="@color/light_grey"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="normal" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <CheckBox
+            android:id="@+id/cb_btn_dressing"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/dressing"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_hemo"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/hemostatic"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+        <CheckBox
+            android:id="@+id/cb_btn_dir_pressure"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/pressure"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+        <CheckBox
+            android:id="@+id/cb_btn_other2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/other2"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@color/darker_gray"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            android:clickable="false"
+            />
+
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/darker_gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/type"-->
+<!--            android:textColor="@color/light_grey"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="normal" />-->
+    </LinearLayout>
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:background="@color/light_grey"-->
+<!--        />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="A:"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_intact"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/intact"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_npa"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/npa"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_cric"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/cric"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_et_tube"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/et_tube"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_sga"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/sga"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/darker_gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/type"-->
+<!--            android:textColor="@color/light_grey"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="normal" />-->
+    </LinearLayout>
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:background="@color/light_grey"-->
+<!--        android:backgroundTint="@color/light_grey" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="B:"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <CheckBox
+            android:id="@+id/cb_btn_o2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            android:text="@string/o2"
+            />
+        <CheckBox
+            android:id="@+id/cb_btn_needle_d"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:text="@string/needle_d"
+            android:textSize="12sp"
+            />
+        <CheckBox
+            android:id="@+id/cb_btn_chest_tube"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            android:text="@string/chest_tube"
+            />
+        <CheckBox
+            android:id="@+id/cb_btn_chest_seal"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/chest_seal"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@color/darker_gray"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/darker_gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/type"-->
+<!--            android:textColor="@color/light_grey"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="normal" />-->
+    </LinearLayout>
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:background="@color/light_grey"-->
+<!--        android:backgroundTint="@color/light_grey" />-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include
+        layout="@layout/layout_treatment_c_table"
+        android:visibility="visible" />
+
+        <include layout="@layout/layout_keypad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="@string/other"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_pill_pack"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/pill_pack"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_eye_shield"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/eye_shield"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_right"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/r"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_left"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/l"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+
+        <CheckBox
+            android:id="@+id/cb_btn_splint"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/splint"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            />
+
+        <CheckBox
+            android:id="@+id/cb_btn_hypothermia"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@drawable/table_borders"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/hypothermia_prevention"
+            android:singleLine="false"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/et_type_hypo_type"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/table_borders"
+        android:gravity="center"
+        android:inputType="text"
+        android:hint="@string/type"
+        android:textColor="@color/light_grey"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+</LinearLayout>

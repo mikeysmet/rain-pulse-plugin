@@ -51,11 +51,9 @@ public class PulseServiceManager {
 
     private void startService() {
         try {
-
             Intent serviceIntent = new Intent( "com.atakmap.android.pulse.GarminService");
             serviceIntent.setPackage("com.atakmap.android.pulse");
             _serviceContext.bindService(serviceIntent, _serviceConnection, Context.BIND_AUTO_CREATE);
-
         } catch (Exception e) {
             Log.d(TAG, "service not working");
             e.printStackTrace();
@@ -80,7 +78,6 @@ public class PulseServiceManager {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Toast.makeText(_serviceContext, "Garmin Service Started!!", Toast.LENGTH_SHORT).show();
-
             _garminInterface = IGarminService.Stub.asInterface(service);
 
             try {
@@ -141,7 +138,6 @@ public class PulseServiceManager {
         builder.show();
     }
 
-
     private IGarminDataListener _dataListener = new IGarminDataListener.Stub() {
         @Override
         public void onDataReceived(int heartRate, int heartRateVariability, int spo2, int respiration, int bodyBattery, int stress, long readingTimeStamp) throws RemoteException {
@@ -168,5 +164,13 @@ public class PulseServiceManager {
             }
         }
     };
+
+    public void addOnHeartRateUpdatedListener(HeartRateUpdateInterface updateInterface) {
+        _heartRateListeners.add(updateInterface);
+    }
+
+    public void addBluetoothStatusListener(BluetoothStatusInterface statusInterface){
+        _statusListeners.add(statusInterface);
+    }
 
 }

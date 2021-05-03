@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_keypad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darker_gray"
+    android:layout_gravity="center_vertical"
+    android:gravity="start"
+    android:paddingTop="48dp"
+    android:orientation="horizontal">
+
+
+    <GridLayout
+        android:id="@+id/gl_keypad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn_5"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn_6"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btn_7"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn_8"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn_9"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btn_0"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btn_del"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:text="Delete" />
+    </GridLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_dose_measurement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_dose_done"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:text="@string/keypad_done" />
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_dose_num"
+        android:layout_width="100dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:padding="2dp"
+        android:textColor="@color/light_grey"
+        android:background="@color/darker_gray"
+        android:textColorHint="@color/light_grey"
+        android:hint="Dosage"
+        android:layout_height="56dp"/>
+
+    <TextView
+        android:id="@+id/tv_dose_msr"
+        android:layout_width="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/light_grey"
+        android:background="@color/darker_gray"
+        android:textColorHint="@color/light_grey"
+        android:hint="mg"
+        android:layout_height="56dp"/>
+
+    </LinearLayout>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_trauma_tccc_man"
+    android:layout_width="match_parent"
+    android:background="@drawable/table_borders"
+    android:layout_height="wrap_content"
+    android:scaleX=".75"
+    android:scaleY=".75">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/tccc_man"
+        android:scaleType="fitXY"
+        android:src="@drawable/tccc_man"
+        android:visibility="visible" />
+
+    <GridView
+        android:id="@+id/gv_tccc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="1dp"
+        android:horizontalSpacing="1dp"
+        android:numColumns="18"
+        android:paddingTop="24dp"
+        android:verticalSpacing="1dp" />
+
+    <ImageView
+        android:id="@+id/iv_trauma_donut"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_round_donut"
+        android:visibility="gone"
+        app:tint="@color/led_red" />
+
+    <ImageView
+        android:id="@+id/iv_trauma_donut2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/check_mark"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_trauma_add"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/add_circle"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_body_part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent_dark"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+</FrameLayout>

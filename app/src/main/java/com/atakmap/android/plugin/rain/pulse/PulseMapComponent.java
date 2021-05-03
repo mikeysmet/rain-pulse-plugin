@@ -47,12 +47,19 @@ public class PulseMapComponent extends DropDownMapComponent {
         _detailManager = new PulseCotDetailManager(context, view);
 
         _teamManager = new TeamManager(_pluginContext, view);
-        _dropDownReceiver = new PulseDropDownReceiver( view, context);
+        _dropDownReceiver = new PulseDropDownReceiver( view, context, _teamManager);
 
         Log.d(TAG, "registering the plugin filter");
         DocumentedIntentFilter ddFilter = new DocumentedIntentFilter();
         ddFilter.addAction(PulseDropDownReceiver.SHOW_PLUGIN);
         registerDropDownReceiver(_dropDownReceiver, ddFilter);
+
+        _pulseManager.addBluetoothStatusListener(_dropDownReceiver.getToolbar());
+        _pulseManager.addOnHeartRateUpdatedListener(_dropDownReceiver.getToolbar());
+        _pulseManager.addOnHeartRateUpdatedListener(_detailManager);
+        _detailManager.addSelfUpdateListener(_dropDownReceiver.getSelfFragment());
+
+        _detailManager.addUpdateListener(_teamManager);
 
         android.util.Log.d(TAG, "DETAIL_MANAGER: " + _detailManager.toString());
 

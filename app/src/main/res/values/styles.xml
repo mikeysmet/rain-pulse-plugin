@@ -107,5 +107,12 @@
         <item name="android:textSize">@dimen/fontSize</item>
     </style>
 
+    <style name="popupMenuStyle" parent="@android:style/Theme.Holo">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:popupBackground">@color/darker_gray</item>
+        <item name="android:iconTint">@android:color/white</item>
+        <item name="android:itemBackground">@color/darker_gray</item>
+    </style>
+
 
 </resources>

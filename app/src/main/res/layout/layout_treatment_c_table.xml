@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_treatment_table"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/darker_gray"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@color/darker_gray"
+        android:gravity="center"
+        android:text="@string/treatment_table_c"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/table_borders"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/table_borders"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@color/darker_gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/name"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="@string/volume"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="Route"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="Time"
+                android:textColor="@color/darker_gray" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/darker_gray"
+                android:gravity="center"
+                android:text="@string/fluid"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_fluid_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_fluid_vol1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_fluid_route"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_fluid_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/blood"
+                android:textColor="@color/darker_gray"
+                android:textSize="14sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_blood_product_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_blood_prod_vol"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_blood_product_route"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_blood_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:textSize="12sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@color/darker_gray"
+        android:gravity="center"
+        android:text="@string/meds"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/table_borders"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@color/darker_gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="Dose"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="@string/route"
+                android:textColor="@color/darker_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:text="@string/time"
+                android:textColor="@color/darker_gray" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/darker_gray"
+                android:gravity="center"
+                android:text="@string/analgesic"
+                android:textColor="@color/light_grey"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_analgesic_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light" />
+
+            <Button
+                android:id="@+id/btn_dose_analgesic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_analgesic_route"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_analgesic_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_border_light"
+                android:gravity="center"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/antibiotic"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_antibiotics_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/btn_dose_antibiotic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_antibiotic_route"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_antibiotic_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:textSize="12sp" />
+        </TableRow>
+
+
+        <!--        <TableRow-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:weightSum="5">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_column="1"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@color/darker_gray"-->
+        <!--                android:gravity="center"-->
+        <!--                android:paddingStart="4dp"-->
+        <!--                android:text="@string/e_g_txa"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="10sp" />-->
+
+        <!--            <EditText-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_column="2"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@drawable/table_border_light" />-->
+
+        <!--            <EditText-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_column="3"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@drawable/table_border_light" />-->
+
+        <!--            <EditText-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_column="4"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@drawable/table_border_light" />-->
+
+        <!--            <EditText-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_column="5"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@drawable/table_border_light"-->
+        <!--                android:gravity="center" />-->
+        <!--        </TableRow>-->
+    </TableLayout>
+</LinearLayout>

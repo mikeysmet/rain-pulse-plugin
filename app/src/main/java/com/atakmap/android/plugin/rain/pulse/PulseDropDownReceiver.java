@@ -3,6 +3,7 @@ package com.atakmap.android.plugin.rain.pulse;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.atak.plugins.impl.PluginLayoutInflater;
@@ -10,6 +11,11 @@ import com.atakmap.android.maps.MapView;
 import com.atakmap.android.dropdown.DropDown.OnStateListener;
 import com.atakmap.android.dropdown.DropDownReceiver;
 
+import com.atakmap.android.plugin.rain.pulse.model.TeamManager;
+import com.atakmap.android.plugin.rain.pulse.prefs.PulsePreferenceFragment;
+import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseDropDownFragment;
+import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseSelfFragment;
+import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseToolbarFragment;
 import com.atakmap.coremap.log.Log;
 
 public class PulseDropDownReceiver extends DropDownReceiver implements
@@ -19,21 +25,24 @@ public class PulseDropDownReceiver extends DropDownReceiver implements
             .getSimpleName();
 
     public static final String SHOW_PLUGIN = "com.atakmap.android.plugin.rain.pulse.SHOW_PLUGIN";
-    private final View templateView;
-    private final Context pluginContext;
+    private MapView _mapView;
+    private Context _pluginContext;
+    private LayoutInflater _inflater;
+    private PulseDropDownFragment _parentFragment;
 
     /**************************** CONSTRUCTOR *****************************/
 
     public PulseDropDownReceiver(final MapView mapView,
-                                 final Context context) {
+                                 final Context context, TeamManager teamManager) {
         super(mapView);
-        this.pluginContext = context;
+        _pluginContext = context;
+        _inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        // Remember to use the PluginLayoutInflator if you are actually inflating a custom view
-        // In this case, using it is not necessary - but I am putting it here to remind
-        // developers to look at this Inflator
-        templateView = PluginLayoutInflater.inflate(context,
-                R.layout.main_layout, null);
+        _mapView = mapView;
+        _pluginContext = context;
+        _parentFragment = new PulseDropDownFragment(_mapView, _pluginContext, teamManager);
+        setAssociationKey(PulsePreferenceFragment.KEY);
 
     }
 
@@ -51,11 +60,12 @@ public class PulseDropDownReceiver extends DropDownReceiver implements
         if (action == null)
             return;
 
+
         if (action.equals(SHOW_PLUGIN)) {
 
             Log.d(TAG, "showing plugin drop down");
-            showDropDown(templateView, FULL_WIDTH, FULL_HEIGHT, FULL_WIDTH,
-                    HALF_HEIGHT, false);
+            showDropDown(_parentFragment, HALF_WIDTH, FULL_HEIGHT, FULL_WIDTH,
+                    HALF_HEIGHT);
         }
     }
 
@@ -74,5 +84,17 @@ public class PulseDropDownReceiver extends DropDownReceiver implements
     @Override
     public void onDropDownClose() {
     }
+
+    public PulseToolbarFragment getToolbar(){
+        //easy way to register status interface inside the toolbar.
+        return _parentFragment.getToolbar();
+    }
+
+    public PulseSelfFragment getSelfFragment(){
+        //easy way to register status interface inside the toolbar.
+        return _parentFragment.getSelfFragment();
+    }
+
+
 
 }
