@@ -14,6 +14,7 @@
         <meta-data android:name="app_desc" android:value="@string/app_desc"/>
 
 
+
     </application>
 
 </manifest>

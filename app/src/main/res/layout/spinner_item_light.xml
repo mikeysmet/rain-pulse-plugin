@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:textSize="14sp"
+    android:gravity="center"
+    android:textColor="@color/darker_gray"
+    android:background="@drawable/table_border_light"
+    android:singleLine="false"
+    android:hint="@string/select_item"
+    android:textColorHint="@color/darker_gray"
+    android:padding="2dp"
+
+    />

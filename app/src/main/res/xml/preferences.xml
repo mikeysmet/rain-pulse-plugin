@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.atakmap.android.gui.PanEditTextPreference
+        android:key="pulse_pref_combat_id"
+        android:title="Combat ID"
+        android:defaultValue="0"
+        android:dialogTitle="Combat Identification"
+        android:inputType="number"
+        android:summary=""  />
+
+    <com.atakmap.android.gui.PanListPreference
+        android:key="pulse_pref_type"
+        android:title="User Type"
+        android:entries="@array/pax_selector_array"
+        android:entryValues="@array/pax_selector_array"
+        android:defaultValue=""/>
+
+    <com.atakmap.android.gui.PanEditTextPreference
+        android:key="pulse_pref_age"
+        android:title="Age"
+        android:dialogTitle="User Age"
+        android:inputType="number"
+        android:summary=""  />
+
+    <CheckBoxPreference
+        android:key="pulse_pref_gender"
+        android:title="Gender"
+        android:defaultValue="true"
+        android:summaryOff="Female"
+        android:summaryOn="Male"/>
+
+    <com.atakmap.android.gui.PanListPreference
+        android:key="pulse_pref_blood"
+        android:title="Blood Type"
+        android:entries="@array/blood_type_array"
+        android:entryValues="@array/blood_type_array"
+        android:defaultValue=""/>
+
+    <com.atakmap.android.gui.PanListPreference
+        android:key="pulse_pref_allergy"
+        android:title="Allergy"
+        android:entries="@array/allergies_array"
+        android:entryValues="@array/allergies_array"
+        android:defaultValue=""/>
+
+    <CheckBoxPreference
+        android:key="pulse_pref_fdp_enabled"
+        android:title="FDP Auth"
+        android:defaultValue="false"
+        android:summaryOff="FDP not authorized"
+        android:summaryOn="FDP authorized"/>
+
+    <com.atakmap.android.gui.PanEditTextPreference
+        android:key="pulse_pref_remark"
+        android:title="Remarks"
+        android:dialogTitle="Remarks"
+        android:inputType="text"
+        android:summary=""  />
+
+    <com.atakmap.android.gui.PanEditTextPreference
+        android:key="pulse_pref_patient_id"
+        android:title="PATIENT Combat ID"
+        android:defaultValue="0"
+        android:dialogTitle="Combat Identification"
+        android:inputType="number"
+        android:summary="ID of the current Patient (set to 0 to disable)"  />
+
+
+</PreferenceScreen>

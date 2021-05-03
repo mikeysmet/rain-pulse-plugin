@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <!-- COMMON -->
     <color name="white">#ffffff</color>
-    <color name="darker_gray">#121212</color>
-
+    <color name="darker_gray">#333</color>
+    <color name="black">#000</color>
+    <color name="blue">#0da2ff</color>
+    <color name="teal">#39f9fc</color>
+    <color name="red">#f22</color>
+    <color name="light_grey">#d2d2d2</color>
+    <color name="med_grey">#aaa</color>
+    <color name="gold">#ffb500</color>
+    <color name="transparent">#45000000</color>
+    <color name="transparent_dark">#aa111111</color>
+    <color name="soft_red">#f55</color>
+    <color name="metallic_dark">#2b2d2f</color>
+    <!-- LED -->
+    <color name="led_green">#7aeb7a</color>
+    <color name="led_orange">#ffbe00</color>
+    <color name="led_yellow">#f6e200</color>
+    <color name="led_red">#c92424</color>
+    <color name="led_light_gray">#d0d0d0</color>
     <!-- LED -->
 
     <!-- PRESET -->

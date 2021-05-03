@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:textSize="14sp"
+    android:gravity="center"
+    android:textColor="@color/light_grey"
+    android:background="@color/darker_gray"
+    android:singleLine="true"
+    android:hint="@string/select_item"
+    android:textColorHint="@color/light_grey"
+    android:padding="2dp"
+    />

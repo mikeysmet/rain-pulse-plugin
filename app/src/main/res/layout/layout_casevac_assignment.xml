@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radio_level_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <RadioButton
+                    android:id="@+id/radio_lvl1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textSize="12sp"
+                    android:text="Lvl 1"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_lvl2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:padding="8dp"
+                    android:text="Lvl 2"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_lvl3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Lvl 3"
+                    android:textSize="12sp"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_enroute"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Enroute"
+                    android:textSize="12sp"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/ed_casevac_assignment_cs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:background="@color/darker_gray"
+                android:hint="@string/call_sign"
+                android:maxLines="1"
+                android:padding="4dp"
+                android:singleLine="true"
+                android:textColor="@color/light_grey" />
+
+            <com.atakmap.android.gui.PluginSpinner
+                android:id="@+id/spinner_casevac_asset"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@color/darker_gray"
+                android:gravity="start|center_vertical"
+                android:hint="@string/asset_type"
+                android:padding="4dp"
+                android:textColor="@color/light_grey"
+                android:textColorHint="@color/light_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/eta"
+                    android:textSize="18sp" />
+
+                <com.atakmap.android.gui.PluginSpinner
+                    android:id="@+id/spinner_eta_hr"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:layout_weight=".5"
+                    android:background="@color/darker_gray"
+                    android:gravity="center"
+                    android:hint="@string/drug_allergies"
+                    android:padding="4dp"
+                    android:textColor="@color/light_grey"
+                    android:textColorHint="@color/light_grey" />
+
+                <com.atakmap.android.gui.PluginSpinner
+                    android:id="@+id/spinner_eta_min"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight=".5"
+                    android:background="@color/darker_gray"
+                    android:gravity="center"
+                    android:hint="@string/drug_allergies"
+                    android:padding="4dp"
+                    android:textColor="@color/light_grey"
+                    android:textColorHint="@color/light_grey" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="16dp"
+                android:background="#333" />
+
+            <EditText
+                android:id="@+id/et_casevac_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:padding="4dp"
+                android:background="@color/darker_gray"
+                android:gravity="start|top"
+                android:hint="@string/remarks"
+                android:textColor="@color/light_grey"
+                android:textColorHint="@color/light_grey" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pax_selector_array">
+        <item>   </item>
+        <item>Coalition Military</item>
+        <item>Coalition Civilian</item>
+        <item>NonCoalition Force</item>
+        <item>NonCoalition Citizen</item>
+        <item>Opposing Force Detainee</item>
+        <item>Child</item>
+    </string-array>
+
+    <string-array name="blood_type_array">
+        <item>   </item>
+        <item>A Pos</item>
+        <item>A Neg</item>
+        <item>B Pos</item>
+        <item>B Neg</item>
+        <item>AB Pos</item>
+        <item>AB Neg</item>
+        <item>O Pos</item>
+        <item>O Neg</item>
+    </string-array>
+
+
+    <string-array name="allergies_array">
+        <item>   </item>
+        <item>Antibiotics</item>
+        <item>Anti-inflammatory (ibuprofen)</item>
+        <item>Aspirin</item>
+        <item>Sulfa drugs</item>
+        <item>Insulin</item>
+        <item>Antiseizure</item>
+        <item>Muscle relaxers</item>
+    </string-array>
+
+
+    <string-array name="analgesic_array">
+        <item>  </item>
+        <item>Codeine</item>
+        <item>Fentanyl</item>
+        <item>Hydrocodone</item>
+        <item>Hydrocodone/acetaminophen</item>
+        <item>Hydromorphone</item>
+        <item>Meperidine</item>
+        <item>Methadone</item>
+        <item>Morphine</item>
+        <item>Oxycodone</item>
+        <item>Oxycodone and acetaminophen</item>
+        <item>Oxycodone and naloxone</item>
+    </string-array>
+
+    <string-array name="antibiotics_array">
+        <item>   </item>
+        <item>	Aminoglycosides	</item>
+        <item>	Amikacin	</item>
+        <item>	Gentamicin	</item>
+        <item>	Kanamycin	</item>
+        <item>	Neomycin	</item>
+        <item>	Netilmicin	</item>
+        <item>	Tobramycin	</item>
+        <item>	Paromomycin	</item>
+        <item>	Streptomycin	</item>
+        <item>	Spectinomycin(Bs)	</item>
+        <item>	Ansamycins	</item>
+        <item>	Geldanamycin	</item>
+        <item>	Herbimycin	</item>
+        <item>	Rifaximin	</item>
+        <item>	Carbacephem	</item>
+        <item>	Loracarbef	</item>
+        <item>	Carbapenems	</item>
+        <item>	Ertapenem	</item>
+        <item>	Doripenem	</item>
+        <item>	Imipenem/Cilastatin	</item>
+        <item>	Meropenem	</item>
+        <item>	Cefadroxil	</item>
+        <item>	Cefazolin	</item>
+        <item>	Cephradine	</item>
+        <item>	Cephapirin	</item>
+        <item>	Cephalothin	</item>
+        <item>	Cefalexin	</item>
+        <item>	Cephalosporins (First generation)	</item>
+        <item>	Cephalosporins (Second generation)	</item>
+        <item>	Cephalosporins (Third generation)	</item>
+        <item>	Cephalosporins (Fourth generation)	</item>
+        <item>	Cephalosporins (Fifth generation)	</item>
+        <item>	Cefaclor	</item>
+        <item>	Cefoxitin	</item>
+        <item>	Cefotetan	</item>
+        <item>	Cefamandole	</item>
+        <item>	Cefmetazole	</item>
+        <item>	Cefonicid	</item>
+        <item>	Loracarbef	</item>
+        <item>	Cefprozil	</item>
+        <item>	Cefuroxime	</item>
+        <item>	Cefixime 	</item>
+        <item>	Cefdinir	</item>
+        <item>	Cefditoren	</item>
+        <item>	Cefoperazone 	</item>
+        <item>	Cefotaxime	</item>
+        <item>	Cefpodoxime	</item>
+        <item>	Ceftazidime 	</item>
+        <item>	Ceftibuten	</item>
+        <item>	Ceftizoxime	</item>
+        <item>	Moxalactam	</item>
+        <item>	Ceftriaxone 	</item>
+        <item>	Cefepime	</item>
+        <item>	Ceftaroline fosamil	</item>
+        <item>	Ceftobiprole	</item>
+        <item>	Glycopeptides	</item>
+        <item>	Teicoplanin	</item>
+        <item>	Vancomycin	</item>
+        <item>	Telavancin	</item>
+        <item>	Dalbavancin	</item>
+        <item>	Oritavancin	</item>
+        <item>	Lincosamides(Bs)	</item>
+        <item>	Clindamycin	</item>
+        <item>	Lincomycin	</item>
+        <item>	Lipopeptide	</item>
+        <item>	Daptomycin	</item>
+        <item>	Macrolides(Bs)	</item>
+        <item>	Azithromycin	</item>
+        <item>	Clarithromycin	</item>
+        <item>	Erythromycin	</item>
+        <item>	Roxithromycin	</item>
+        <item>	Telithromycin	</item>
+        <item>	Spiramycin	</item>
+        <item>	Fidaxomicin	</item>
+        <item>	Monobactams	</item>
+        <item>	Aztreonam	</item>
+        <item>	Nitrofurans	</item>
+        <item>	Furazolidone	</item>
+        <item>	Nitrofurantoin(Bs)	</item>
+        <item>	Oxazolidinones(Bs)	</item>
+        <item>	Linezolid	</item>
+        <item>	Posizolid	</item>
+        <item>	Radezolid	</item>
+        <item>	Torezolid	</item>
+        <item>	Penicillins	</item>
+        <item>	Amoxicillin	</item>
+        <item>	Ampicillin	</item>
+        <item>	Azlocillin	</item>
+        <item>	Dicloxacillin	</item>
+        <item>	Flucloxacillin	</item>
+        <item>	Mezlocillin	</item>
+        <item>	Methicillin	</item>
+        <item>	Nafcillin	</item>
+        <item>	Oxacillin	</item>
+        <item>	Penicillin G	</item>
+        <item>	Penicillin V	</item>
+        <item>	Piperacillin	</item>
+        <item>	Penicillin G	</item>
+        <item>	Temocillin	</item>
+        <item>	Ticarcillin	</item>
+        <item>	Penicillin combinations	</item>
+        <item>	Amoxicillin/clavulanate	</item>
+        <item>	Ampicillin/sulbactam	</item>
+        <item>	Piperacillin/tazobactam	</item>
+        <item>	Ticarcillin/clavulanate	</item>
+        <item>	Polypeptides	</item>
+        <item>	Bacitracin	</item>
+        <item>	Colistin	</item>
+        <item>	Polymyxin B	</item>
+        <item>	Quinolones/Fluoroquinolones	</item>
+        <item>	Ciprofloxacin	</item>
+        <item>	Enoxacin	</item>
+        <item>	Gatifloxacin	</item>
+        <item>	Gemifloxacin	</item>
+        <item>	Levofloxacin	</item>
+        <item>	Lomefloxacin	</item>
+        <item>	Moxifloxacin	</item>
+        <item>	Nadifloxacin	</item>
+        <item>	Nalidixic acid	</item>
+        <item>	Norfloxacin	</item>
+        <item>	Ofloxacin	</item>
+        <item>	Trovafloxacin	</item>
+        <item>	Grepafloxacin	</item>
+        <item>	Sparfloxacin	</item>
+        <item>	Temafloxacin	</item>
+        <item>	Sulfonamides(Bs)	</item>
+        <item>	Mafenide	</item>
+        <item>	Sulfacetamide	</item>
+        <item>	Sulfadiazine	</item>
+        <item>	Silver sulfadiazine	</item>
+        <item>	Sulfadimethoxine	</item>
+        <item>	Sulfamethizole	</item>
+        <item>	Sulfamethoxazole	</item>
+        <item>	Sulfanilimide (archaic)	</item>
+        <item>	Sulfasalazine	</item>
+        <item>	Sulfisoxazole	</item>
+        <item>	Trimethoprim-Sulfamethoxazole	</item>
+        <item>	Sulfonamidochrysoidine	</item>
+        <item>	Tetracyclines(Bs)	</item>
+        <item>	Demeclocycline	</item>
+        <item>	Doxycycline	</item>
+        <item>	Metacycline	</item>
+        <item>	Minocycline	</item>
+        <item>	Oxytetracycline	</item>
+        <item>	Tetracycline	</item>
+        <item>	Drugs against mycobacteria	</item>
+        <item>	Clofazimine	</item>
+        <item>	Dapsone	</item>
+        <item>	Capreomycin	</item>
+        <item>	Cycloserine	</item>
+        <item>	Ethambutol(Bs)	</item>
+        <item>	Ethionamide	</item>
+        <item>	Isoniazid	</item>
+        <item>	Pyrazinamide	</item>
+        <item>	Rifampicin/Rifampin	</item>
+        <item>	Rifabutin	</item>
+        <item>	Rifapentine	</item>
+        <item>	Streptomycin	</item>
+        <item>	Others	</item>
+        <item>	Arsphenamine	</item>
+        <item>	Chloramphenicol(Bs)	</item>
+        <item>	Fosfomycin	</item>
+        <item>	Fusidic acid	</item>
+        <item>	Metronidazole	</item>
+        <item>	Mupirocin	</item>
+        <item>	Platensimycin	</item>
+        <item>	Quinupristin/Dalfopristin	</item>
+        <item>	Thiamphenicol	</item>
+        <item>	Tigecycline(Bs)	</item>
+        <item>	Tinidazole	</item>
+        <item>	Trimethoprim(Bs)	</item>
+    </string-array>
+
+
+    <string-array name="route_array">
+        <item>  </item>
+        <item>IV</item>
+        <item>IO</item>
+    </string-array>
+
+    <string-array name="dose_unit_array">
+        <item>  </item>
+        <item>mg</item>
+        <item>mcg</item>
+        <item>mL</item>
+        <item>gm</item>
+        <item>units</item>
+        <item>cc</item>
+    </string-array>
+
+    <string-array name="blood_product_array">
+        <item>   </item>
+        <item>Whole blood</item>
+        <item>Plasma, RBCs and platelets (1:1:1)</item>>
+        <item>Plasma and RBCs (1:1)</item>>
+        <item>Hextend</item>
+        <item>Lactated Ringers</item>
+        <item>Plasma-Lyte-A</item>
+    </string-array>
+
+    <string-array name="fluid_array">
+        <item>   </item>
+        <item>3% Normal Saline</item>
+        <item>Lactated Ringer</item>
+        <item>.9% Normal Saline</item>
+    </string-array>
+
+
+    <string-array name="casevac_platform_array">
+        <item>   </item>
+        <item>MH-60</item>
+        <item>CH-47</item>
+        <item>V-22 Osprey</item>
+        <item>MI-17</item>
+        <item>Bell 407</item>
+        <item>C-130</item>
+        <item>C-17</item>
+        <item>Other</item>
+
+    </string-array>
+
+
+    <string-array name="casevac_eta_hr">
+        <item>   </item>
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+
+    <string-array name="casevac_eta_min">
+        <item>   </item>
+        <item>00</item>
+        <item>05</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+    </string-array>
+
+</resources>
+
+
+
+
+
+
+
