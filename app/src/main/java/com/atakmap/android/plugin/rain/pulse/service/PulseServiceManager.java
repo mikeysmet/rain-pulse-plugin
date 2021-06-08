@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.InputType;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.atakmap.android.maps.MapView;
+import com.atakmap.android.plugin.rain.pulse.ui.dialog.InstallDialog;
 import com.atakmap.android.plugin.rain.pulse.util.PulseIntentUtils;
 import com.atakmap.android.pulse.plugin.IGarminDataListener;
 import com.atakmap.android.pulse.plugin.IGarminPairingInterface;
@@ -40,6 +42,7 @@ public class PulseServiceManager {
 
     private ConcurrentLinkedQueue<BluetoothStatusInterface> _statusListeners = new ConcurrentLinkedQueue<>();
     private ConcurrentLinkedQueue<HeartRateUpdateInterface> _heartRateListeners = new ConcurrentLinkedQueue<>();
+    boolean installed = false;
 
 
     public PulseServiceManager(Context pluginContext, MapView mapView){
@@ -49,11 +52,35 @@ public class PulseServiceManager {
         startService();
     }
 
+
+    private boolean isAppInstalled(String packageName) {
+        PackageManager pm = _pluginContext.getPackageManager();
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            installed = false;
+        }
+        return installed;
+    }
+
     private void startService() {
         try {
-            Intent serviceIntent = new Intent( "com.atakmap.android.pulse.GarminService");
-            serviceIntent.setPackage("com.atakmap.android.pulse");
-            _serviceContext.bindService(serviceIntent, _serviceConnection, Context.BIND_AUTO_CREATE);
+            if(isAppInstalled("com.atakmap.android.pulse")) {
+
+                //This intent will help you to launch if the package is already installed
+                Intent LaunchIntent = _pluginContext.getPackageManager()
+                        .getLaunchIntentForPackage("com.atakmap.android.pulse");
+                _pluginContext.startActivity(LaunchIntent);
+                Toast.makeText(_serviceContext, "Pulse App Registered", Toast.LENGTH_SHORT).show();
+
+                Intent serviceIntent = new Intent("com.atakmap.android.pulse.GarminService");
+                serviceIntent.setPackage("com.atakmap.android.pulse");
+                _serviceContext.bindService(serviceIntent, _serviceConnection, Context.BIND_AUTO_CREATE);
+            }else {
+                InstallDialog installDialog = new InstallDialog(_pluginContext, _mapView);
+                installDialog.show();
+            }
         } catch (Exception e) {
             Log.d(TAG, "service not working");
             e.printStackTrace();
