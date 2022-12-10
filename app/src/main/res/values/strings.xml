@@ -114,4 +114,6 @@
     <string name="injury_location">Injury Location</string>
     <string name="keypad_done">Done</string>
     <string name="action_done">Done</string>
+    <string name="install_alert">Ready to install Pulse App?</string>
+    <string name="us_mil">US-Mil</string>
 </resources>

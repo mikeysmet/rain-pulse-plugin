@@ -1,5 +1,7 @@
 package com.atakmap.android.plugin.rain.pulse.ui.adapter;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,7 +33,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapter.ActiveTeamViewHolder> {
 
-    private static final String TAG = "TrackRecyclerAdapter";
+    private static final String TAG = "TeamRecyclerAdapter";
 
     private final Context _pluginContext;
     private MapView _mapView;
@@ -38,6 +41,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
     public ConcurrentHashMap<Integer, TeamMemberInputs> _map;
     public PulseFragmentInterface _parent;
     TeamMemberInputs teamMemberData;
+    public boolean selfCasualty = false;
     public int count = 0;
 
     public TeamRecyclerAdapter(Context pluginContext, MapView mapView, PulseFragmentInterface parent) {
@@ -60,7 +64,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
 
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
-    public void onBindViewHolder(@NonNull  ActiveTeamViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ActiveTeamViewHolder holder, final int position) {
         teamMemberData = new ArrayList<>(_map.values()).get(position);
         holder.activeUUID.setText(teamMemberData.getTmCombatID());
         if (!_mapView.getDeviceCallsign().equals(teamMemberData.getTmCallsign())) {
@@ -83,6 +87,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             holder.heartRate.setText(String.valueOf(teamMemberData.getTmHeartRate()));
         }
         try {
+            Log.d("TEAM_DATA", teamMemberData.getTmSp02()+"");
             if (teamMemberData.getTmSp02() == null || teamMemberData.getTmSp02().equals("-1") || teamMemberData.getTmSp02().equals("-2")) {
                 holder.pulseOx.setText("---");
             } else {
@@ -133,6 +138,15 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
                 Exception e) {
             e.printStackTrace();
         }
+        Log.d(TAG, "CASUALTY_STATUS: " + teamMemberData.tmCasualty + " | " + teamMemberData.combatID);
+
+        if (teamMemberData.tmCasualty) {
+            holder._ivCasevac.setVisibility(View.VISIBLE);
+            holder._ivWatchType.setVisibility(View.GONE);
+        } else {
+            holder._ivCasevac.setVisibility(View.GONE);
+            holder._ivWatchType.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -159,7 +173,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             TeamMemberInputs current = _map.get(tagID);
             data.setExpandView(current.isExpandView());
             _map.put(tagID, data);
-            Log.d(TAG, "updating (from update) tag " + tagID);
+            Log.d(TAG, "updating_member " + tagID + " | " + _map.get(tagID).tmCasualty);
             int position = new ArrayList<Integer>(_map.keySet()).indexOf(tagID);
             notifyItemChanged(position);
         }
@@ -180,6 +194,21 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
         }
     }
 
+    public void setupPatientList(ConcurrentHashMap<Integer, TeamMemberInputs> map) {
+        _map.clear();
+        Log.d(TAG, "SEARCH_PATIENT_MAP ");
+
+        for (ConcurrentHashMap.Entry<Integer, TeamMemberInputs> entry : map.entrySet()) {
+            boolean isCasualty = entry.getValue().tmCasualty;
+            Log.d(TAG, "setupPatientList: " + isCasualty);
+            if (isCasualty) {
+                _map.put(entry.getKey(), entry.getValue());
+                Log.d(TAG, "inserting (from insert) tag " + entry.getKey());
+                notifyItemInserted(_map.size());
+            }
+        }
+    }
+
     public void showCasevac(int teamMemberID) {
         if (_map.contains(teamMemberID)) {
             int tagID = Integer.parseInt(String.valueOf(_map));
@@ -187,7 +216,6 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
         }
         //set casevac params here for the team member. if multiple callsigns are input into casevac manifest, we need to attach team
         //members to the new map. this map will be sent to the patient recycler adapter
-        Log.d(TAG, "showCasevac: " + teamMemberData.getTmCombatID() + "\n" + teamMemberData.getTmCallsign() );
         _parent.showTraumaDialog(teamMemberData);
     }
 
@@ -201,6 +229,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
 
         public LinearLayout linearLayoutExtras;
         public LinearLayout linearLayoutTraumaTreatments;
+        public LinearLayout linearLayoutAlert;
 
         public TextView activeUUID;
         public TextView cardTextID;
@@ -257,6 +286,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             location = itemView.findViewById(R.id.tv_item_self_location);
             linearLayoutExtras = itemView.findViewById(R.id.ll_data_card);
             linearLayoutTraumaTreatments = itemView.findViewById(R.id.ll_treatments_administered);
+            linearLayoutAlert = itemView.findViewById(R.id.ll_data_alert);
 
             ivMoreExpand.setOnClickListener(this);
             ivMoreCollapse.setOnClickListener(this);
@@ -275,11 +305,10 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             if (buttonView.isPressed()) {
                 TeamMemberInputs teamMemberData = new ArrayList<>(_map.values()).get(getAdapterPosition());
                 teamMemberData.setBroadcasting(isChecked);
-                if(teamMemberData.isTmCasualty()){
+                if (teamMemberData.isTmCasualty()) {
                     linearLayoutTraumaTreatments.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     linearLayoutTraumaTreatments.setVisibility(View.GONE);
-
                 }
             }
         }
@@ -287,7 +316,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
         // onClick Listener for view
         @Override
         public void onClick(View v) {
-            final TeamMemberInputs teamMemberData = new ArrayList<>(_map.values()).get(getAdapterPosition());
+            TeamMemberInputs teamMemberData = new ArrayList<>(_map.values()).get(getAdapterPosition());
             if (v.isPressed()) {
                 if (v == ivMoreExpand) {
                     teamMemberData.setExpandView(true);
@@ -318,19 +347,24 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
                     ivTrackHistoryHide.setVisibility(View.GONE);
 
                 }
-                if (v == linearLayoutTraumaTreatments){
+                if (v == linearLayoutTraumaTreatments) {
                     //not doing treatments at this time
                     //TODO -  we need a better plan for treatments
-                    //_parent.showPatientTreatmentsDialog(teamMemberData.getTmCombatID());
+//                    _parent.showPatientTreatmentsDialog(teamMemberData.getTmCombatID());
 
                 }
                 if (v == _ivCasevac) {
+                    int position = getAdapterPosition();
+                    Log.d(TAG, "onClick: " + position + " | " + teamMemberData.combatID);
+                    teamMemberData.tmCasualty = true;
+                    teamMemberData.update(teamMemberData);
+                    notifyItemChanged(position);
                     showCasevac(teamMemberData.combatID);
                 }
 
                 if (v == _ivWatchType) {
                     new Thread(() -> {
-                        MapView.getMapView().getMapController().zoomTo(.0005d, false);
+                        MapView.getMapView().getMapController().zoomTo(.005d, false);
                         MapView.getMapView().getMapController().panTo(
                                 new GeoPoint(teamMemberData.getTmLat(), teamMemberData.getTmLon()),
                                 false);
@@ -359,14 +393,18 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             }
             count++;
             if (count > 1) {
+                int position = getAdapterPosition();
                 _ivWatchType.setVisibility(View.VISIBLE);
                 _ivCasevac.setVisibility(View.GONE);
+                teamMemberData.setTmCasualty(false);
+                notifyItemChanged(position);
                 Toast.makeText(MapView.getMapView().getContext(), "Cancel Casevac", Toast.LENGTH_SHORT).show();
                 count = 0;
-            }else {
+            } else {
                 Toast.makeText(MapView.getMapView().getContext(), "Initiate Casevac", Toast.LENGTH_SHORT).show();
-
             }
+            Log.d(TAG, "Is_casualty: " + teamMemberData.tmCasualty + " -- " + teamMemberData.combatID);
+            teamMemberData.update(teamMemberData);
 
             return true;
         }

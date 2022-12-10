@@ -58,6 +58,7 @@ public class PulseMapComponent extends DropDownMapComponent {
         _pulseManager.addOnHeartRateUpdatedListener(_dropDownReceiver.getToolbar());
         _pulseManager.addOnHeartRateUpdatedListener(_detailManager);
         _detailManager.addSelfUpdateListener(_dropDownReceiver.getSelfFragment());
+        _detailManager.addMonitorUpdateListener(_teamManager);
 
         _detailManager.addUpdateListener(_teamManager);
 
@@ -71,7 +72,7 @@ public class PulseMapComponent extends DropDownMapComponent {
                                 "Pulse user settings ",
                                 PulsePreferenceFragment.KEY,
                                 context.getResources().getDrawable(
-                                        R.drawable.pulse_red, null),
+                                        R.drawable.ic_pulse_logo, null),
                                 new PulsePreferenceFragment(context)));
 
 

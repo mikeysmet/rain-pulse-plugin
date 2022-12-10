@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pulse is on the Google play store"
+        android:text="@string/install_alert"
         android:gravity="center"
         android:layout_gravity="center"/>
 

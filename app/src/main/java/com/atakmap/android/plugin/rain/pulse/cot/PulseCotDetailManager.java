@@ -153,6 +153,11 @@ public class PulseCotDetailManager implements SharedPreferences.OnSharedPreferen
         _relay.addSelfUpdateListener(updateInterface);
         updateInterface.onCurrentUserUpdated(_currentUser);
     }
+    public void addMonitorUpdateListener(PulseNetworkTeamUpdateInterface updateInterface) {
+        _relay.addListener(updateInterface);
+        updateInterface.onPatientUpdateReceived(_currentUser);
+    }
+
 
 
 }

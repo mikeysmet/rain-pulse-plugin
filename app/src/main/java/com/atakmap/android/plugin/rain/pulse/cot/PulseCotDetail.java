@@ -29,6 +29,9 @@ public class PulseCotDetail {
     public static final String ATTR_STRESS = "stress";
 
     public static final String ATTR_HEART_RATE = "heartRate";
+    public static final String ATTR_TM_CASUALTY = "casualty_status";
+
+
 
     public int heartRate = -1;
     public int heartRateVar = -1;
@@ -99,6 +102,7 @@ public class PulseCotDetail {
         pulseDetail.setAttribute(ATTR_RESPIRATION, user.getTmRespiration());
         pulseDetail.setAttribute(ATTR_BODY_BATTERY, user.getTmBodyBattery());
         pulseDetail.setAttribute(ATTR_STRESS, user.getTmStress());
+        pulseDetail.setAttribute(ATTR_TM_CASUALTY, String.valueOf(user.isTmCasualty()));
         pulseDetail.setAttribute(ATTR_HEART_RATE, user.getTmHeartRate());
         pulseDetail.setAttribute(ATTR_HEART_RATE_VARIABLE, user.getTmHeartRateVar());
         pulseDetail.setAttribute(ATTR_REMARK, user.getRemarks());
@@ -113,6 +117,7 @@ public class PulseCotDetail {
         userDetail.setAttribute(ATTR_RESPIRATION, currentUser.getTmRespiration());
         userDetail.setAttribute(ATTR_BODY_BATTERY, currentUser.getTmBodyBattery());
         userDetail.setAttribute(ATTR_STRESS, currentUser.getTmStress());
+        userDetail.setAttribute(ATTR_TM_CASUALTY, String.valueOf(currentUser.isTmCasualty()));
 
     }
 
@@ -136,6 +141,8 @@ public class PulseCotDetail {
         update.setTmBodyBattery(getAttribute(ATTR_BODY_BATTERY, cotDetail));
         update.setTmStress(getAttribute(ATTR_STRESS, cotDetail));
         update.setTmHeartRate(getAttribute(ATTR_HEART_RATE, cotDetail));
+//        set alert for casualty pending
+        update.setTmCasualty(getBooleanAttribute(ATTR_TM_CASUALTY, cotDetail));
 
         return update;
     }

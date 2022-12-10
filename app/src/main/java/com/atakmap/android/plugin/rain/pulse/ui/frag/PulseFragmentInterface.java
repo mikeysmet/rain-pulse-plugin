@@ -9,4 +9,5 @@ public interface PulseFragmentInterface {
     void showHomeFragment();
     void showFragment(Fragment fragment);
     void showTraumaDialog(TeamMemberInputs teamMemberInputs);
+    void showPatientMonitorFragment();
 }

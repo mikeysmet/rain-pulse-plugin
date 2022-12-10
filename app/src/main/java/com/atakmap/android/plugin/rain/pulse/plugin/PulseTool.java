@@ -32,7 +32,7 @@ public class PulseTool extends Tool implements ToolDescriptor {
     @Override
     public Drawable getIcon() {
         return (context == null) ? null
-                : context.getResources().getDrawable(R.drawable.pulse_red);
+                : context.getResources().getDrawable(R.drawable.ic_pulse_logo_white);
     }
 
     @Override

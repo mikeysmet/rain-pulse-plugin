@@ -39,6 +39,7 @@ public class PulseDropDownFragment extends Fragment implements PulseFragmentInte
     private PulseToolbarFragment _toolbar;
     private PulseHomeFragment _homeFragment;
     private PulseSelfFragment _selfFragment;
+    private PulseMonitorFragment _monitorFragment;
     private Fragment _currentFragment;
 
     @SuppressLint("ValidFragment")
@@ -49,6 +50,7 @@ public class PulseDropDownFragment extends Fragment implements PulseFragmentInte
         _toolbar = new PulseToolbarFragment(mapView, pluginContext, this);//_trackManager
         _homeFragment = new PulseHomeFragment(_mapView, pluginContext, this, teamManager);//track manager to be added
         _selfFragment = new PulseSelfFragment(_mapView, pluginContext, this, teamManager);
+        _monitorFragment = new PulseMonitorFragment(_mapView, pluginContext, this, teamManager);
 
     }
 
@@ -93,13 +95,19 @@ public class PulseDropDownFragment extends Fragment implements PulseFragmentInte
         return _homeFragment;
     }
 
+    public PulseMonitorFragment getMonitorFragment() {
+        return _monitorFragment;
+    }
+
     @Override
     public void showTraumaDialog(TeamMemberInputs teamMemberInputs) {
         TraumaDialog traumaDialog = new TraumaDialog(_pluginContext, _mapView, teamMemberInputs);
         Log.d(TAG, "showTraumaDialog: " + "\n" + teamMemberInputs.isTmCasualty()
-        +  "\n" + teamMemberInputs.getTmCallsign());
+                + "\n" + teamMemberInputs.getTmCallsign());
         traumaDialog.show();
     }
+
+
 
 
     @Override
@@ -157,6 +165,13 @@ public class PulseDropDownFragment extends Fragment implements PulseFragmentInte
         showFragment(_selfFragment);
     }
 
+    @Override
+    public void showPatientMonitorFragment() {
+        if (_monitorFragment == null) {
+            _monitorFragment = new PulseMonitorFragment(_mapView, _pluginContext, this, _teamManager);
+        }
+        showFragment(_monitorFragment);
+    }
 
 
 }

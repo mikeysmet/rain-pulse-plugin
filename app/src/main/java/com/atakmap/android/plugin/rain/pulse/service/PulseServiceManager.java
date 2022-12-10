@@ -40,8 +40,8 @@ public class PulseServiceManager {
     private android.app.AlertDialog _permissionsDialog;
     private boolean _ignorePermissionsRequest;
 
-    private ConcurrentLinkedQueue<BluetoothStatusInterface> _statusListeners = new ConcurrentLinkedQueue<>();
-    private ConcurrentLinkedQueue<HeartRateUpdateInterface> _heartRateListeners = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<BluetoothStatusInterface> _statusListeners = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<HeartRateUpdateInterface> _heartRateListeners = new ConcurrentLinkedQueue<>();
     boolean installed = false;
 
 
@@ -53,10 +53,10 @@ public class PulseServiceManager {
     }
 
 
-    private boolean isAppInstalled(String packageName) {
+    private boolean isAppInstalled() {
         PackageManager pm = _pluginContext.getPackageManager();
         try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            pm.getPackageInfo("com.atakmap.android.pulse", PackageManager.GET_ACTIVITIES);
             installed = true;
         } catch (PackageManager.NameNotFoundException e) {
             installed = false;
@@ -66,7 +66,7 @@ public class PulseServiceManager {
 
     private void startService() {
         try {
-            if(isAppInstalled("com.atakmap.android.pulse")) {
+            if(isAppInstalled()) {
 
                 //This intent will help you to launch if the package is already installed
                 Intent LaunchIntent = _pluginContext.getPackageManager()
@@ -101,7 +101,7 @@ public class PulseServiceManager {
         _serviceContext.unbindService(_serviceConnection);
     }
 
-    private ServiceConnection _serviceConnection = new ServiceConnection() {
+    private final ServiceConnection _serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Toast.makeText(_serviceContext, "Garmin Service Started!!", Toast.LENGTH_SHORT).show();
@@ -135,7 +135,7 @@ public class PulseServiceManager {
         }
     };
 
-    private IGarminPairingInterface _pairingInterface = new IGarminPairingInterface.Stub() {
+    private final IGarminPairingInterface _pairingInterface = new IGarminPairingInterface.Stub() {
         @Override
         public void onPairingRequested() throws RemoteException {
             showPairingDialog();
@@ -165,7 +165,7 @@ public class PulseServiceManager {
         builder.show();
     }
 
-    private IGarminDataListener _dataListener = new IGarminDataListener.Stub() {
+    private final IGarminDataListener _dataListener = new IGarminDataListener.Stub() {
         @Override
         public void onDataReceived(int heartRate, int heartRateVariability, int spo2, int respiration, int bodyBattery, int stress, long readingTimeStamp) throws RemoteException {
             for (HeartRateUpdateInterface heartRateInterface:_heartRateListeners ) {
@@ -175,7 +175,7 @@ public class PulseServiceManager {
         }
     };
 
-    private IGarminStatusListener _statusListener = new IGarminStatusListener.Stub() {
+    private final IGarminStatusListener _statusListener = new IGarminStatusListener.Stub() {
         @Override
         public void onStatusUpdated(String state, String message) throws RemoteException {
 

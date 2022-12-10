@@ -152,14 +152,14 @@ public class PulseToolbarFragment extends Fragment implements BluetoothStatusInt
         });
     }
 
-//    private void showPatientMonitorFragment() {
-//        _parent.showPatientMonitorFragment();
-//
-//    }
+    private void showPatientMonitorFragment() {
+        _parent.showPatientMonitorFragment();
 
-    private void showPatientQueueFragment() {
-        //_parent.showPatientQueueFragment();
     }
+
+//    private void showPatientQueueFragment() {
+//        _parent.showPatientQueueFragment();
+//    }
 
     private void hideSelfFragment() {
         _ivHideSelf.setOnClickListener(new View.OnClickListener() {
@@ -213,12 +213,13 @@ public class PulseToolbarFragment extends Fragment implements BluetoothStatusInt
                             break;
 
                         case "Patient Monitor":
-                            showPatientQueueFragment();
-//                            showPatientMonitorFragment();
+//                          showPatientQueueFragment();
+                            showPatientMonitorFragment();
                             monitorVisible = true;
                             break;
 
                         case "Close Monitor":
+                            hidePatientMonitorFragment();
                             _parent.showHomeFragment();
                             _parent.showSelfFragment();
                             monitorVisible = false;
@@ -324,10 +325,9 @@ public class PulseToolbarFragment extends Fragment implements BluetoothStatusInt
 
         }
         popupMenu.getMenu().add(3, 3, 3, menuIconWithText(_pluginContext.getResources().getDrawable(R.drawable.ic_delete_foreground), _pluginContext.getResources().getString(R.string.delete_self)));
-        if (casevacInProgress){
+        if (casevacInProgress) {
             popupMenu.getMenu().add(4, 4, 4, menuIconWithText(_pluginContext.getResources().getDrawable(R.drawable.add_circle), _pluginContext.getResources().getString(R.string.casevac_complete)));
-        }
-        else {
+        } else {
             popupMenu.getMenu().removeItem(4);
         }
         popupMenu.getMenu().add(5, 5, 5, menuIconWithText(_pluginContext.getResources().getDrawable(R.drawable.image_clear), _pluginContext.getResources().getString(R.string.reset_treatments)));

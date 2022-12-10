@@ -16,8 +16,8 @@ public class PulseCotRelay {
      * Used to keep track of all the TeamMember updates out of the CoT thread.
      * */
 
-    private ConcurrentLinkedQueue<PulseNetworkTeamUpdateInterface> _teamListener = new ConcurrentLinkedQueue<>();
-    private ConcurrentLinkedQueue<PulseSelfUpdateInterface> _selfListeners = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<PulseNetworkTeamUpdateInterface> _teamListener = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<PulseSelfUpdateInterface> _selfListeners = new ConcurrentLinkedQueue<>();
 
     private ConcurrentLinkedQueue<TeamMemberInputs> _updateQueue;
     private boolean _isRunning;
@@ -52,6 +52,7 @@ public class PulseCotRelay {
     public void updateUser(TeamMemberInputs currentUser) {
         for (PulseSelfUpdateInterface listener: _selfListeners) {
             listener.onCurrentUserUpdated(currentUser);
+            Log.d(TAG, "updateUser_relay: " + currentUser.isTmCasualty());
         }
     }
 

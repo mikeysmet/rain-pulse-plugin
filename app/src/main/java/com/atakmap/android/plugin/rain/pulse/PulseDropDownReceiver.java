@@ -14,6 +14,7 @@ import com.atakmap.android.dropdown.DropDownReceiver;
 import com.atakmap.android.plugin.rain.pulse.model.TeamManager;
 import com.atakmap.android.plugin.rain.pulse.prefs.PulsePreferenceFragment;
 import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseDropDownFragment;
+import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseMonitorFragment;
 import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseSelfFragment;
 import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseToolbarFragment;
 import com.atakmap.coremap.log.Log;
@@ -93,6 +94,11 @@ public class PulseDropDownReceiver extends DropDownReceiver implements
     public PulseSelfFragment getSelfFragment(){
         //easy way to register status interface inside the toolbar.
         return _parentFragment.getSelfFragment();
+    }
+
+    public PulseMonitorFragment getMonitorFragment(){
+        //easy way to register status interface inside the toolbar.
+        return _parentFragment.getMonitorFragment();
     }
 
 

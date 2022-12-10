@@ -23,7 +23,7 @@ import com.atakmap.android.plugin.rain.pulse.model.TeamMemberUpdateInterface;
 import com.atakmap.android.plugin.rain.pulse.ui.adapter.TeamRecyclerAdapter;
 import com.atakmap.android.plugin.rain.pulse.util.RunnableManager;
 
-public class PulseHomeFragment extends Fragment implements TeamMemberUpdateInterface {
+public class PulseMonitorFragment extends Fragment implements TeamMemberUpdateInterface {
 
     private final MapView _mapView;
     private final Context _pluginContext;
@@ -37,7 +37,7 @@ public class PulseHomeFragment extends Fragment implements TeamMemberUpdateInter
 
 
     @SuppressLint("ValidFragment")
-    public PulseHomeFragment(MapView mapView, Context pluginContext, PulseFragmentInterface parent, TeamManager teamManager) {
+    public PulseMonitorFragment(MapView mapView, Context pluginContext, PulseFragmentInterface parent, TeamManager teamManager) {
         _mapView = mapView;
         _parent = parent;
         _pluginContext = pluginContext;
@@ -62,8 +62,10 @@ public class PulseHomeFragment extends Fragment implements TeamMemberUpdateInter
             _trackListRecycler.setLayoutManager(new LinearLayoutManager(_pluginContext, LinearLayoutManager.VERTICAL, false));
             ((SimpleItemAnimator) _trackListRecycler.getItemAnimator()).setSupportsChangeAnimations(false);
 
+            Log.d("MONITOR", "onViewCreated_monitor" + _teamManager.getMap().toString());
             _trackAdapter = new TeamRecyclerAdapter(_pluginContext, _mapView, _parent);
-            _trackAdapter.setup(_teamManager.getMap());
+//            Setup Patient Monitor if team member is casualty
+            _trackAdapter.setupPatientList(_teamManager.getMap());
             _trackListRecycler.setAdapter(_trackAdapter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,12 +104,12 @@ public class PulseHomeFragment extends Fragment implements TeamMemberUpdateInter
     }
 
     @Override
-    public void onTeamMemberAdded(final TeamMemberInputs inputs) {
+    public void onTeamMemberAdded(final TeamMemberInputs transmitter) {
         RunnableManager.getInstance().post(new Runnable() {
             @Override
             public void run() {
-                _trackAdapter.insert(inputs);
-                Log.i("TAG_COUNT", ": " + _trackAdapter.getItemCount() +"  -- "+ inputs.tmCasualty);
+                _trackAdapter.insert(transmitter);
+                Log.i("TAG_COUNT", ": " + _trackAdapter.getItemCount());
                 _trackAdapter.notifyDataSetChanged();
             }
         });

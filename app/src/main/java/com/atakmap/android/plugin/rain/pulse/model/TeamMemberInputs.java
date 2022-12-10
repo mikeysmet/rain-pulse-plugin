@@ -2,6 +2,7 @@ package com.atakmap.android.plugin.rain.pulse.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -104,7 +105,7 @@ public class TeamMemberInputs implements Parcelable {
                             boolean tmAuthorizeFDP, boolean tmCasualty, int tmDirection, int tmBattery) {
 
         this.tmCombatID = tmCombatID;
-        combatID = Integer.valueOf(tmCombatID);
+        combatID = Integer.parseInt(tmCombatID);
 
         this.tmCallsign = tmCallsign;
         this.tmHeartRate = tmHeartRate;
@@ -163,7 +164,7 @@ public class TeamMemberInputs implements Parcelable {
 
     public void setTmCombatID(String tmCombatID) {
         this.tmCombatID = tmCombatID;
-        this.combatID = Integer.valueOf(tmCombatID);
+        this.combatID = Integer.parseInt(tmCombatID);
     }
 
     public String getTmCallsign() {
@@ -486,6 +487,7 @@ public class TeamMemberInputs implements Parcelable {
         this.tmAuthorizeFDP = updated.tmAuthorizeFDP;
         this.tmCasualty = updated.tmCasualty;
         this.remarks = updated.remarks;
+        Log.d("TAG", "update_test " + updated.tmCasualty);
     }
 
     public void setLastReportTime(long timeStamp) {

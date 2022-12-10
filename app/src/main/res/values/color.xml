@@ -15,6 +15,9 @@
     <color name="transparent_dark">#aa111111</color>
     <color name="soft_red">#f55</color>
     <color name="metallic_dark">#2b2d2f</color>
+    <color name="amber_orange">#33FFBF00</color>
+    <color name="card_header">#444</color>
+
     <!-- LED -->
     <color name="led_green">#7aeb7a</color>
     <color name="led_orange">#ffbe00</color>

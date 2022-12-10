@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:background="#444"
+        android:background="@color/card_header"
         android:orientation="horizontal">
 
         <TextView
@@ -22,7 +22,7 @@
             android:layout_marginStart="8dp"
             android:gravity="center"
             android:maxLines="1"
-            android:text="US-Mil"
+            android:text="@string/us_mil"
             android:textColor="@color/light_grey"
             android:textSize="16sp"
             android:textStyle="italic|bold" />
@@ -53,7 +53,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="4dp"
             android:src="@drawable/icon_id"
-            app:tint="@color/light_grey" />
+            android:tint="@color/light_grey"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -191,7 +192,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="4dp"
             android:src="@drawable/ic_body_battery"
-            app:tint="@color/teal" />
+            android:tint="@color/teal"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -246,7 +248,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="4dp"
             android:src="@drawable/blood_type"
-            app:tint="@color/soft_red" />
+            android:tint="@color/soft_red"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -294,7 +297,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="4dp"
             android:src="@drawable/allergies"
-            app:tint="@color/led_light_gray" />
+            android:tint="@color/led_light_gray"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -341,7 +345,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="4dp"
             android:src="@drawable/injection"
-            app:tint="@color/gold" />
+            android:tint="@color/gold"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:layout_width="wrap_content"
