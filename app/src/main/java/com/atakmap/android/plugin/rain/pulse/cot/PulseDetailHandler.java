@@ -35,16 +35,16 @@ public class PulseDetailHandler extends CotDetailHandler {
     @Override
     public CommsMapComponent.ImportResult toItemMetadata(MapItem mapItem, CotEvent cotEvent, CotDetail cotDetail) {
         String name = cotDetail.getElementName();
-        if(name.equals(PulseCotDetail.DETAIL_PULSE)){
+        if (name.equals(PulseCotDetail.DETAIL_PULSE)) {
             mapItem.setMetaParcelable(PulseCotDetail.DETAIL_PULSE, cotDetail);
-            Log.d(TAG, "found pulse alert: " + cotEvent.getUID());
+            Log.d(TAG, "found_pulse_alert: " + cotEvent.getUID() + " Type: " + cotEvent.getType() + "\n" + cotDetail);
 
             //if the CASEVAC Event contains a pulse detail, that
             // is the new patient ID.
-            if(cotEvent.getType().equals(COT_TYPE_CASEVAC)){
+            if (cotEvent.getType().equals(COT_TYPE_CASEVAC)) {
                 updatePatientId(cotDetail);
-            }
-            else{
+            } else {
+                Log.d("PARENT_INFO", cotDetail.toString());
                 updateParent(mapItem, cotDetail);
             }
             return CommsMapComponent.ImportResult.SUCCESS;
@@ -55,19 +55,21 @@ public class PulseDetailHandler extends CotDetailHandler {
 
     private void updatePatientId(CotDetail cotDetail) {
         TeamMemberInputs update = PulseCotDetail.toTeamMember(cotDetail);
+        Log.d("updatePatientId", update.getTmCallsign() + " | " + update.tmCasualty);
         PulsePrefs.setPatientId(update.getTmCombatID());
         _patientTeamId = update.getTmCombatID();
 
-        update.setTmCasualty(true);
+        update.setTmCasualty(update.tmCasualty);
 
         _parent.handleTeamUpdate(update);
-
     }
+
 
     private void updateParent(MapItem mapItem, CotDetail cotDetail) {
         //create team member struct and pass to TeamRelay
-        if(!(mapItem instanceof Marker))return;
-        Marker marker = (Marker)mapItem;
+        Log.d("UPDATE_PARENT", cotDetail.toString());
+        if (!(mapItem instanceof Marker)) return;
+        Marker marker = (Marker) mapItem;
         GeoPoint location = marker.getPoint();
         String uid = marker.getUID();
         String callsign = marker.getTitle();
@@ -78,11 +80,6 @@ public class PulseDetailHandler extends CotDetailHandler {
         update.setTmLat(location.getLatitude());
 
         update.setLastReportTime(new CoordinatedTime().getMilliseconds());
-
-        if(update.getTmCombatID().equals(_patientTeamId))
-        {
-            update.setTmCasualty(true);
-        }
 
         _parent.handleTeamUpdate(update);
     }

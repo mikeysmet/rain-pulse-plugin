@@ -137,9 +137,9 @@ public class PulsePrefs {
         editor.putString(KEY_PATIENT_ID, tmCombatID);
         //keep alive for 6 hours.
         CoordinatedTime time = new CoordinatedTime();
-        time.addHours(6);
+        time.addSeconds(10);
         editor.putString(KEY_PATIENT_STALE, time.toString());
-        editor.commit();
+        editor.apply();
     }
 
     public static String getPatientId() {

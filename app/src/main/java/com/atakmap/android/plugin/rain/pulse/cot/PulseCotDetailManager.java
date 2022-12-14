@@ -90,8 +90,10 @@ public class PulseCotDetailManager implements SharedPreferences.OnSharedPreferen
 
     public void handleTeamUpdate(TeamMemberInputs update) {
         if (_relay == null) return;
+
+        update.setTmCasualty(update.getTmCombatID().equals(PulsePrefs.getPatientId()));
         _relay.update(update);
-        Log.d(TAG, "handleTeamUpdate: " + update.getTmCallsign());
+        Log.d(TAG, "handleTeamUpdate: " + update.getTmCallsign() + " | "+ update.tmCasualty);
     }
 
     public void addUpdateListener(PulseNetworkTeamUpdateInterface listener) {
@@ -153,11 +155,11 @@ public class PulseCotDetailManager implements SharedPreferences.OnSharedPreferen
         _relay.addSelfUpdateListener(updateInterface);
         updateInterface.onCurrentUserUpdated(_currentUser);
     }
+
     public void addMonitorUpdateListener(PulseNetworkTeamUpdateInterface updateInterface) {
         _relay.addListener(updateInterface);
         updateInterface.onPatientUpdateReceived(_currentUser);
     }
-
 
 
 }

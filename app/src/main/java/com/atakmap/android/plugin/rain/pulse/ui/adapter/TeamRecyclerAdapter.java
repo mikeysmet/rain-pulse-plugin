@@ -23,6 +23,7 @@ import com.atakmap.android.ipc.AtakBroadcast;
 import com.atakmap.android.maps.MapView;
 import com.atakmap.android.plugin.rain.pulse.R;
 import com.atakmap.android.plugin.rain.pulse.model.TeamMemberInputs;
+import com.atakmap.android.plugin.rain.pulse.prefs.PulsePrefs;
 import com.atakmap.android.plugin.rain.pulse.ui.frag.PulseFragmentInterface;
 import com.atakmap.coremap.maps.coords.GeoPoint;
 
@@ -87,7 +88,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             holder.heartRate.setText(String.valueOf(teamMemberData.getTmHeartRate()));
         }
         try {
-            Log.d("TEAM_DATA", teamMemberData.getTmSp02()+"");
+            Log.d("TEAM_DATA", teamMemberData.getTmSp02() + "");
             if (teamMemberData.getTmSp02() == null || teamMemberData.getTmSp02().equals("-1") || teamMemberData.getTmSp02().equals("-2")) {
                 holder.pulseOx.setText("---");
             } else {
@@ -143,9 +144,11 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
         if (teamMemberData.tmCasualty) {
             holder._ivCasevac.setVisibility(View.VISIBLE);
             holder._ivWatchType.setVisibility(View.GONE);
+            count = 1;
         } else {
             holder._ivCasevac.setVisibility(View.GONE);
             holder._ivWatchType.setVisibility(View.VISIBLE);
+            count = 0;
         }
     }
 
@@ -157,7 +160,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             _map.put(tagID, data);
             notifyItemInserted(_map.size());
         } else {
-            int position = new ArrayList<Integer>(_map.keySet()).indexOf(tagID);
+            int position = new ArrayList<>(_map.keySet()).indexOf(tagID);
             _map.put(tagID, data);
             notifyItemChanged(position);
         }
@@ -397,6 +400,7 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
                 _ivWatchType.setVisibility(View.VISIBLE);
                 _ivCasevac.setVisibility(View.GONE);
                 teamMemberData.setTmCasualty(false);
+                PulsePrefs.setPatientId("-1");
                 notifyItemChanged(position);
                 Toast.makeText(MapView.getMapView().getContext(), "Cancel Casevac", Toast.LENGTH_SHORT).show();
                 count = 0;

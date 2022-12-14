@@ -92,12 +92,9 @@ public class PulseHomeFragment extends Fragment implements TeamMemberUpdateInter
 
     @Override
     public void onTeamMemberUpdated(TeamMemberInputs teamMemberInputs) {
-        RunnableManager.getInstance().post(new Runnable() {
-            @Override
-            public void run() {
-                _trackAdapter.update(teamMemberInputs);
-                Log.i("TAG_COUNT", ": " + _trackAdapter.getItemCount() + " --- " + searchResult);
-            }
+        RunnableManager.getInstance().post(() -> {
+            _trackAdapter.update(teamMemberInputs);
+            Log.i("TAG_COUNT", ": " + _trackAdapter.getItemCount() + " --- " + searchResult);
         });
     }
 

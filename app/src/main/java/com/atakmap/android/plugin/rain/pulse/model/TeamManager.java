@@ -75,7 +75,7 @@ public class TeamManager implements PulseNetworkTeamUpdateInterface {
 
     @Override
     public void onPatientUpdateReceived(TeamMemberInputs update) {
-        Log.d(TAG, "PATIENT Updating");
+        Log.d(TAG, "PATIENT_Updating");
         _lastPatientUpdate = update;
         _patientMap.put(update.combatID, update);
         for (TeamMemberUpdateInterface listener : _trackListeners) {
